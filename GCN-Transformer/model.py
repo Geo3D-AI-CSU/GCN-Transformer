@@ -8,22 +8,22 @@ import os  # 操作系统交互（路径、文件夹等）
 import numpy as np  # 数值计算库
 import torch  # PyTorch 张量与模型库
 import torch.nn as nn  # PyTorch 神经网络模块
-import torch.nn.functional as F  # 常用的函数式接口（激活、损失等）
+import torch.nn.functional as F  # 常用的函数式接口
 from torch_geometric.nn import GCNConv, global_mean_pool  # PyG 的 GCN 层与池化
 from torch_geometric.data import Data, DataLoader  # PyG 的数据容器与加载器
-from sklearn.model_selection import train_test_split  # 用于数据切分（未在主流程用到）
+from sklearn.model_selection import train_test_split  # 用于数据切分
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score  # 回归评价指标
 import matplotlib.pyplot as plt  # 绘图
-import seaborn as sns  # 辅助绘图美化（在脚本中未严格必要）
+import seaborn as sns  # 辅助绘图美化
 import cartopy.crs as ccrs  # 地图投影
-import cartopy.feature as cfeature  # 地图特征（海岸线、国界）
-from scipy.interpolate import griddata  # 插值工具（未在主流程中直接使用）
+import cartopy.feature as cfeature  # 地图特征
+from scipy.interpolate import griddata  # 插值工具
 import pandas as pd  # 表格与时间处理
-from torch_geometric.data import InMemoryDataset  # PyG 的内存数据集基类（未主动继承，但导入以备）
-import json  # 读写 json（未在主流程中使用）
+from torch_geometric.data import InMemoryDataset  # PyG 的内存数据集基类
+import json  # 读写 json
 from tqdm import tqdm  # 进度条工具
 import argparse  # 命令行解析
-from scipy import stats  # 统计工具（用于 KDE 密度估计）
+from scipy import stats  # 统计工具
 
 # 设置绘图中文支持
 plt.rcParams['font.sans-serif'] = ['SimHei']  # 指定中文字体为 SimHei，使图表可以显示中文标签
