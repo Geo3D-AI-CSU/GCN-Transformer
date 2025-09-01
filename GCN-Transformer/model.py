@@ -29,8 +29,8 @@ from scipy import stats  # 统计工具
 plt.rcParams['font.sans-serif'] = ['SimHei']  # 指定中文字体为 SimHei，使图表可以显示中文标签
 plt.rcParams['axes.unicode_minus'] = False  # 使负号能够正常显示
 
-# 设置训练设备（此处固定为 CPU）
-device = torch.device('cpu')
+# 设置训练设备
+device = torch.device('gpu')
 print(f"使用设备: {device}")  # 打印所用设备
 
 
