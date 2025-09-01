@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-逐行注释版：GCN + Transformer 训练与评估脚本
-说明：该文件将你提供的完整脚本原样保留，并在每个重要语句/语句块前或行尾添加中文注释，目的是逐行解释代码作用与数据流。
-注意：注释较多，阅读时推荐在代码编辑器中按行折叠注释以便查看逻辑。
+GCN + Transformer 训练与评估脚本
 """
 
 # -------------------- 导入依赖模块 --------------------
@@ -130,7 +128,7 @@ class GCNTransformerModel(nn.Module):
         if len(x.shape) == 3 and x.shape[0] == seq_len:
             x = x.view(seq_len, batch_size * num_nodes, num_features)
 
-        # ---------- 对每个时间步 t 应用 GCN（或线性投影） ----------
+        # ---------- 对每个时间步 t 应用 GCN ----------
         gcn_outputs = []  # 收集每个时间步的 GCN 输出
         for t in range(seq_len):
             x_t = x[t]  # 当前时间帧，形状 [batch_size*num_nodes, num_features]
