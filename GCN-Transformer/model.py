@@ -641,14 +641,6 @@ def run_ablation_suite(processed_samples, output_dir, epochs=10, batch_size=2):
                              pooling='last_time'),
         'feature_indices': [0, 1]
     })
-    # 去掉CAMS-IO（举例）
-    experiments.append({
-        'name': 'features_wo_cams_io',
-        'model_kwargs': dict(num_features=4, hidden_dim=16, num_layers=2, num_heads=2, dropout=0.2,
-                             use_gcn=True, use_transformer=True, use_batch_norm=True, use_dropout=True, use_clamp=True,
-                             pooling='last_time'),
-        'feature_indices': [0, 2, 3, 4]
-    })
 
     results = []
     for exp in experiments:
@@ -670,17 +662,6 @@ def run_ablation_suite(processed_samples, output_dir, epochs=10, batch_size=2):
             'last_train_loss': train_losses[-1] if len(train_losses) > 0 else None,
             'last_val_loss': val_losses[-1] if len(val_losses) > 0 else None
         })
-
-    # 写入 CSV 保存消融结果
-    csv_path = os.path.join(output_dir, 'ablation_results.csv')
-    import csv
-    with open(csv_path, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=['name', 'rmse', 'mae', 'r2', 'last_train_loss', 'last_val_loss'])
-        writer.writeheader()
-        for row in results:
-            writer.writerow(row)
-    print(f"\n✅ 消融实验完成，结果已保存到: {csv_path}")
-
 
 # -------------------- 主流程 --------------------
 def main(args):
