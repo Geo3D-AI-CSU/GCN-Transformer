@@ -770,7 +770,7 @@ def main(args):
     print("划分数据集...")
     total_samples = len(samples)
     train_end = int(total_samples * 0.72)  # 72% 用于训练
-    val_end = int(total_samples * 0.80)    # 下一个 8% 用于验证，其余用于测试
+    val_end = int(total_samples * 0.08)    # 下一个 8% 用于验证，其余用于测试
 
     train_samples = samples[:train_end]
     val_samples = samples[train_end:val_end]
